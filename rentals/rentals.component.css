@@ -1,0 +1,14 @@
+thead th {
+    /* background-color: #f0f0f0; Change this to your desired background color */
+    color: #35296d; /* Change this to your desired text color */
+  }
+  tbody td{
+    color:#b81a49;
+  }
+  td{
+    overflow: hidden;
+  }
+  tbody td img{
+    border: 1px solid #b81a49;
+    border-radius: 20px;
+  }

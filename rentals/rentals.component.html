@@ -1,0 +1,74 @@
+
+<div class="container">
+    <h1 class=" h1styl display-4 color-sec my-3 text-uppercase text-center mb-5">Find Your Rentals</h1>
+    <div class=" hstack justify-content-center">
+      <p class="alert alert-danger w-100 text-center  mt-5" *ngIf="rentals.length==0">You have not rentals yet</p>
+    </div>
+    <table class="table table-hover  mx-auto  my-5 rounded-4 overflow-hidden" *ngIf="rentals.length>0">
+      <thead class="table-custom">
+        <tr>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Pick Location</th>
+          <th>Return Location</th>
+          <th>Total Cost</th>
+          <th>Car Status</th>
+          <th>Car Image</th>
+          <th >Pay</th>
+          <th >Add Review</th>
+        </tr>
+      </thead>
+      <tbody class="fw-bolder">
+        <tr *ngFor="let item of rentals" class="color-secc">
+          <td>{{item.start_Date.split("T")[0]}}</td>
+          <td>{{item.end_Date.split("T")[0]}}</td>
+          <td>{{item.pick_Location}}</td>
+          <td>{{item.ret_Location}}</td>
+          <td>{{item.total_Cost}}</td>
+          <td *ngIf="item.status==0">
+  
+              Pending
+  
+          </td>
+          <td *ngIf="item.status==1">
+  
+              Waiting to Payment
+  
+          </td>
+          <td *ngIf="item.status==2" >
+  
+              Confirmed
+  
+          </td>
+          <td *ngIf="item.status==3">
+  
+              Rejected
+  
+          </td>
+          <td style="height: 100px;" (click)="openDialogImg(item.carImageURL)">
+            <img [src]="item.carImageURL" class="w-100 h-100" alt="">
+          </td>
+  
+          <td  >
+           <a [routerLink]="['/payment/', item.total_Cost , item.id]"><button class="btn-color" [disabled]="item.status!=1"> Proceed to pay</button></a>
+  
+          </td>
+          <td >
+            <button class="btn-color" [disabled]="item.status!=2" (click)="openDialog(item.id)"> Add Review</button>
+          </td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

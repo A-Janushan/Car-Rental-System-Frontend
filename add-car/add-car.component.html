@@ -1,0 +1,138 @@
+<section class="p-4 bg-white rounded">
+    <form action="" [formGroup]="carForm" (ngSubmit)="addCar()">
+      <div class="form-floating my-3">
+        <select class="form-control" formControlName="brand" [ngClass]="{
+          'is-valid': !carForm.get('brand')?.errors && carForm.get('brand')?.dirty,
+          'is-invalid': carForm.get('brand')?.errors && carForm.get('brand')?.dirty
+        }" (change)="onBrandChange($event)">
+          <option value="" disabled selected>Select a brand</option>
+          <option value="BMW">BMW</option>
+          <option value="KIA">KIA</option>
+          <option value="AUDI">AUDI</option>
+          <!-- <option value="FORD">FORD</option>
+          <option value="CHEVROLET">CHEVROLET</option> -->
+          <option value="HONDA">HONDA</option>
+          <option value="HYUNDAI">HYUNDAI</option>
+          <option value="TOYOTA">TOYOTA</option>
+          <option value="SKODA">SKODA</option>
+          <option value="others">Others</option>
+        </select>
+        <label  class="activeL color-main">Brand </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('brand')?.getError('required')">Brand is required</li>
+        </ul>
+      </div>
+      <!--
+  
+  
+  
+       -->
+       <div *ngIf="selectedBrand === 'others'" class="form-floating my-3">
+        <input type="text" class="form-control" formControlName="otherBrand" [ngClass]="{
+          'is-valid': !carForm.get('otherBrand')?.errors && carForm.get('otherBrand')?.dirty,
+          'is-invalid': carForm.get('otherBrand')?.errors && carForm.get('otherBrand')?.dirty
+        }">
+        <label class="activeL color-main">Other Brand</label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('otherBrand')?.getError('required')">Other Brand is required</li>
+        </ul>
+      </div>
+       <!--
+  
+  
+        -->
+      <div class="form-floating my-3">
+        <input type="text"  class="form-control" formControlName="modell" [ngClass]="{
+          'is-valid': !carForm.get('modell')?.errors && carForm.get('modell')?.dirty,
+          'is-invalid': carForm.get('modell')?.errors && carForm.get('modell')?.dirty
+        }">
+        <label  class="activeL color-main">Model </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('modell')?.getError('required')">Model is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="number"  class="form-control" formControlName="year" [ngClass]="{
+          'is-valid': !carForm.get('year')?.errors && carForm.get('year')?.dirty,
+          'is-invalid': carForm.get('year')?.errors && carForm.get('year')?.dirty
+        }">
+        <label  class="activeL color-main">Year </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('year')?.getError('required')">Year is required</li>
+          <li *ngIf="carForm.get('year')?.getError('min')">Year must be within range 2005 to 2024</li>
+          <li *ngIf="carForm.get('year')?.getError('max')">Year must be within range 2005 to 2024</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text"  class="form-control" formControlName="color" [ngClass]="{
+          'is-valid': !carForm.get('color')?.errors && carForm.get('color')?.dirty,
+          'is-invalid': carForm.get('color')?.errors && carForm.get('color')?.dirty
+        }">
+        <label  class="activeL color-main">Color </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('color')?.getError('required')">Color is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="file" (change)="onFileSelected($event)" class="form-control" formControlName="carImage" [ngClass]="{
+          'is-valid': !carForm.get('carImage')?.errors && carForm.get('carImage')?.dirty,
+          'is-invalid': carForm.get('carImage')?.errors && carForm.get('carImage')?.dirty
+        }">
+        <label  class="activeL color-main">Car Image </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('carImage')?.getError('required')">car mage is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="number"  class="form-control" formControlName="cost_Per_Day" [ngClass]="{
+          'is-valid': !carForm.get('cost_Per_Day')?.errors && carForm.get('cost_Per_Day')?.dirty,
+          'is-invalid': carForm.get('cost_Per_Day')?.errors && carForm.get('cost_Per_Day')?.dirty
+        }">
+        <label  class="activeL color-main">Cost Per Day </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('cost_Per_Day')?.getError('required')">Cost per day is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="number"  class="form-control" formControlName="seats" [ngClass]="{
+          'is-valid': !carForm.get('seats')?.errors && carForm.get('seats')?.dirty,
+          'is-invalid': carForm.get('seats')?.errors && carForm.get('seats')?.dirty
+        }">
+        <label  class="activeL color-main">Seats </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('seats')?.getError('required')">Seats is required</li>
+        </ul>
+      </div>
+  
+      <div class="form-floating my-3">
+        <select formControlName="isAvailable"  class="form-control" [ngClass]="{
+          'is-valid': !carForm.get('isAvailable')?.errors && carForm.get('isAvailable')?.dirty,
+          'is-invalid': carForm.get('isAvailable')?.errors && carForm.get('isAvailable')?.dirty
+        }">
+          <option value="true" selected>Available</option>
+          <option value="false">Not Available</option>
+        </select>
+        <label  class="activeL color-main">Availability </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('isAvailable')?.getError('required')">Availability is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <select formControlName="trans_Type"  class="form-control" [ngClass]="{
+          'is-valid': !carForm.get('trans_Type')?.errors && carForm.get('trans_Type')?.dirty,
+          'is-invalid': carForm.get('trans_Type')?.errors && carForm.get('trans_Type')?.dirty
+        }">
+          <option value="0" >Manual</option>
+          <option value="1" selected>Automatic</option>
+        </select>
+        <label  class="activeL color-main">Transmission type </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="carForm.get('trans_Type')?.getError('required')">Transmission type is required</li>
+        </ul>
+      </div>
+      <div class="hstack justify-content-center ">
+        <button type="submit" class="btn-color w-50 text-center ">Add Car</button>
+      </div>
+    </form>
+  </section>
+  

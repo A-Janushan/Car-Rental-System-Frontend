@@ -1,0 +1,62 @@
+<div class="container">
+    <h1 class=" h1styl display-4 color-sec my-3 text-uppercase text-center mb-5">Find Your Requests</h1>
+    <div class="alert alert-danger text-center mx-auto w-75" *ngIf="requests.length==0"> You have not requests for this car yet </div>
+    <table class="table table-hover w-100  my-5 rounded-4 overflow-hidden" *ngIf="requests.length>0">
+      <thead class="table-custom">
+        <tr>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Pickup Location</th>
+          <th>Return Location</th>
+          <th>Total Days</th>
+          <th>Total Cost</th>
+          <th>Name</th>
+          <th>Phone Number</th>
+          <th>Address</th>
+          <th>Driving liscense</th>
+          <th>Status</th>
+          <th >Reject</th>
+          <th >Confirm</th>
+        </tr>
+      </thead>
+      <tbody class="fw-bolder">
+        <tr  class="color-secc" *ngFor="let req of requests">
+          <td>{{req.start_Date.split("T")[0]}}</td>
+          <td>{{req.end_Date.split("T")[0]}}</td>
+          <td>{{req.pick_Location}}</td>
+          <td>{{req.ret_Location}}</td>
+          <td>{{req.rentalDays}} Day</td>
+          <td>{{(req.totalCost*0.95)}}</td>
+          <td>{{req.fullName}}</td>
+          <td>{{req.phoneNumber}}</td>
+          <td>{{req.address}}</td>
+          <td style="height: 100px;" (click)="openDialog(req.drivingLic)">
+            <img [src]="req.drivingLic" class="w-100 h-100" alt="">
+          </td>
+          <td *ngIf="req.status==0">
+            <!-- <div class="btn btn-warning text-white text-uppercase"> -->
+              Pending
+            <!-- </div> -->
+          </td>
+          <td *ngIf="req.status==1">
+            <!-- <div class="btn btn-primary text-white text-uppercase"> -->
+              Waiting to Payment
+            <!-- </div> -->
+          </td>
+          <td *ngIf="req.status==2" >
+            <!-- <div class="btn btn-success text-white text-uppercase"> -->
+              Confirmed
+            <!-- </div> -->
+          </td>
+          <td *ngIf="req.status==3">
+            <!-- <div class="btn btn-danger text-white text-uppercase"> -->
+              Rejected
+            <!-- </div> -->
+          </td>
+          <td ><button class="btn-color" [disabled]="req.status==2 || req.status==3" (click)="rejectRequest(req.id)" >Reject</button></td>
+          <td ><button class="btn-color" [disabled]="req.status!=0 " (click)="waitingPayment(req.id)" >Confirm</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

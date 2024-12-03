@@ -1,0 +1,13 @@
+thead th {
+    color: #35296d;
+  }
+  tbody td{
+    color:#b81a49;
+  }
+  td{
+    overflow: hidden;
+  }
+  tbody td img{
+    border: 1px solid #b81a49;
+    border-radius: 20px;
+  }

@@ -1,0 +1,51 @@
+<section class="p-3 bg-white rounded">
+    <form action="" [formGroup]="rentalForm" (ngSubmit)="rent(rentalForm)">
+      <div class="form-floating my-3">
+        <input type="date"  class="form-control" formControlName="start_Date" [ngClass]="{
+          'is-valid': !rentalForm.get('start_Date')?.errors && rentalForm.get('start_Date')?.dirty,
+          'is-invalid': rentalForm.get('start_Date')?.errors && rentalForm.get('start_Date')?.dirty
+        }">
+        <label  class="activeL color-main">Start Date </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="rentalForm.get('start_Date')?.getError('required')">Start Date is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="date"  class="form-control" formControlName="end_Date" [ngClass]="{
+          'is-valid': !rentalForm.get('end_Date')?.errors && rentalForm.get('end_Date')?.dirty,
+          'is-invalid': rentalForm.get('end_Date')?.errors && rentalForm.get('end_Date')?.dirty
+        }">
+        <label  class="activeL color-main">End Date </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="rentalForm.get('end_Date')?.getError('required')">End Date is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text"  class="form-control" formControlName="pick_Location" [ngClass]="{
+          'is-valid': !rentalForm.get('pick_Location')?.errors && rentalForm.get('pick_Location')?.dirty,
+          'is-invalid': rentalForm.get('pick_Location')?.errors && rentalForm.get('pick_Location')?.dirty
+        }">
+        <label  class="activeL color-main">Pick Location </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="rentalForm.get('pick_Location')?.getError('required')">Pick location is required</li>
+        </ul>
+      </div>
+      <div class="form-floating my-3">
+        <input type="text"  class="form-control" formControlName="ret_Location" [ngClass]="{
+          'is-valid': !rentalForm.get('ret_Location')?.errors && rentalForm.get('ret_Location')?.dirty,
+          'is-invalid': rentalForm.get('ret_Location')?.errors && rentalForm.get('ret_Location')?.dirty
+        }">
+        <label  class="activeL color-main">Return Location </label>
+        <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+          <li *ngIf="rentalForm.get('ret_Location')?.getError('required')">Return location is required</li>
+        </ul>
+      </div>
+  
+  <div class="hstack justify-content-center ">
+    <button type="submit" class="btn-color w-50 text-center ">Rent</button>
+  </div>
+  
+  
+     </form>
+  </section>
+  
