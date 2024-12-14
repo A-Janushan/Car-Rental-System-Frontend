@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-md navbar-light bg-nav ">
+  <div class="container-fluid">
+  <a class="navbar-brand" routerLink="home">
+    <img src="./assets/logo.png" class="" style="width: 50px; height: 50px;" alt="logo">
+  </a>
+  <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="collapsibleNavId">
+    <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+      <li class="nav-item">
+        <a class="nav-link color-navItem" routerLink="home" >Home</a>
+      </li>
+      <li class="nav-item" >
+        <a class="nav-link  color-navItem" routerLink="car" >Cars</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogin">
+        <a class="nav-link  color-navItem" routerLink="myCars" >My Cars</a>
+      </li>
+      <li class="nav-item" *ngIf="isLogin">
+        <a class="nav-link color-navItem" routerLink="rental"  >Rentals</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+      <li class="nav-item me-3" *ngIf="!isLogin">
+        <a class="nav-link  btn-color"   (click)="openDialogLogin()">LogIn</a>
+      </li>
+      <li class="nav-item me-3" *ngIf="!isLogin">
+        <a class="nav-link btn-color"  (click)="openDialogRegister()">Register</a>
+      </li>
+
+      <li class="nav-item me-3" *ngIf="isLogin">
+        <a class="nav-link  btn-color" type="button"  (click)="openDialog()">Add Car</a>
+      </li>
+      <li class="nav-item me-3" *ngIf="isLogin" (click)="logout()">
+        <a class="nav-link btn-color"  >Logout </a>
+      </li>
+      <!-- <li class="nav-item me-3" *ngIf="isLogin" (click)="logout()">
+        <a class="nav-link btn-color"  >Hi {{name}} </a>
+      </li> -->
+      <li *ngIf="isLogin">
+        <div class="btn-group dropstart">
+          <button type="button" class=" dropdown-toggle btn-color " data-bs-toggle="dropdown" aria-expanded="false" title="button">
+            <i class="fa-solid fa-gear fa-spin"></i>
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" type="button" (click)="openDialogChangePass()">Change Password</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav>

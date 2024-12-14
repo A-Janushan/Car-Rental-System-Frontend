@@ -1,0 +1,108 @@
+
+<div class="my-5 container">
+
+  <div class="row  my-4 gx-0">
+    <div class="col-sm-10 col-md-6 ">
+
+      <img [src]="carDetails.carImageURL" class="" alt="">
+    </div>
+    <div class="col-sm-10 col-md-6">
+      <div style="font-size: 30px; font-weight: bolder; color: #35296d;">{{carDetails.brand}} </div>
+      <div class="mb-5 text-secondary" style="font-size: 25px; font-weight: bolder;">{{carDetails.model}}
+        {{carDetails.year}}</div>
+
+      <div class="row">
+        <div class="col-4">
+          <p class="mainT text-secondary fs-5">Color </p>
+        </div>
+        <div class=" col-2">
+          <p class="mainT fs-5" style="color: #35296d;">{{carDetails.color}}</p>
+        </div>
+        <div class="col-4">
+          <p class="mainT text-secondary fs-5">Availability </p>
+        </div>
+        <div class="col-2">
+
+          <p class="mainT fs-5" style="color: #35296d;" *ngIf="carDetails.isAvailable">Available </p>
+          <p class="mainT fs-5" style="color: #35296d;" *ngIf="!carDetails.isAvailable">Not Available </p>
+        </div>
+
+        <!-- <p class="color-secc fs-5"> {{carDetails.isAvailable}}</p> -->
+
+      </div>
+
+      <div class="row">
+        <div class="col-4">
+          <p class="mainT text-secondary fs-5">Seats</p>
+        </div>
+
+        <div class="col-2">
+          <p class="mainT " style="color: #35296d;"> {{carDetails.seats}}</p>
+        </div>
+
+        <div class="col-4">
+          <p class="mainT text-secondary fs-5">Transmission</p>
+        </div>
+        <div class="col-2">
+          <p class="mainT fs-5" style="color: #35296d;" *ngIf="carDetails.trans_Type==0">Manual</p>
+          <p class="mainT fs-5" style="color: #35296d;" *ngIf="carDetails.trans_Type==1">Automatic</p>
+        </div>
+      </div>
+
+      <div class="row" style="margin-top: 50px;">
+
+        <div class=" d-flex col-6">
+
+          <p class="mainT fs-3" style="color: #35296d;">{{carDetails.cost_Per_Day}} EGP <span
+              style="font-size: 15px;  color: rgb(177, 175, 175);">/Day</span></p>
+        </div>
+        <div class="col-6">
+          <button type="button" class="btn-color w-100 fs-5" [hidden]="!carDetails.isAvailable"
+            (click)="openDialog(carDetails.id)"> Rent Now</button>
+
+
+          <p *ngIf="!carDetails.isAvailable" class="alert alert-danger text-center ">This car is not
+            available
+            now</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!--  -->
+<section class="my-3" >
+  <div class="container   rounded-1" >
+    <p class="color-secc display-6 text-center py-3">Some of our client`s reviews</p>
+    <swiper-container class="w-100 text-center"
+  speed="500" loop="true" autoplay="true"  slides-per-view="3"  pagination="true"
+  >
+    <swiper-slide *ngFor="let item of reviewArr">
+      <div class="card-client">
+    <div class="user-picture">
+        <svg viewBox="0 0 448 512" xmlns="http://www.w3.org/2000/svg">
+            <path d="M224 256c70.7 0 128-57.31 128-128s-57.3-128-128-128C153.3 0 96 57.31 96 128S153.3 256 224 256zM274.7 304H173.3C77.61 304 0 381.6 0 477.3c0 19.14 15.52 34.67 34.66 34.67h378.7C432.5 512 448 496.5 448 477.3C448 381.6 370.4 304 274.7 304z"></path>
+        </svg>
+    </div>
+    <!-- name-client  -->
+    <p class="color-secc"> {{item.userName}}
+        <span><p-rating [(ngModel)]="item.rating" [readonly]="true" [cancel]="false"></p-rating>
+        </span>
+        <br>
+        {{item.comment}}
+
+    </p>
+
+</div>
+
+
+    </swiper-slide>
+
+  </swiper-container>
+
+  </div>
+</section>
+
+
+

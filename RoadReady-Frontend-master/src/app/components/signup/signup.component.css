@@ -1,0 +1,11 @@
+.fninp,.lninp{
+  width: 49%;
+
+}
+section{
+  overflow-x: hidden !important;
+}
+
+.card{
+  border: none !important;
+}

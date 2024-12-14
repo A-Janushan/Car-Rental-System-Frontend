@@ -1,0 +1,51 @@
+<div class="container">
+  <h1 class=" h1styl display-4 color-sec my-3 text-uppercase text-center mb-5">Find Your Cars</h1>
+  <div class=" hstack justify-content-center">
+    <p class="alert alert-danger w-100 text-center  mt-5" *ngIf="cars.length==0">You have not cars yet</p>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-4" *ngFor="let item of cars" >
+      <div class="rent-item mb-4" >
+        <div [routerLink]="['/carRequest',item.id]">
+          <img class="img-fluid mb-4" [src]="item.carImageURL" alt="">
+        <h4 class="text-uppercase mb-4">
+          <div class="green-circle d-inline-block " *ngIf="item.isAvailable"></div>
+          <div class="red-circle d-inline-block" *ngIf="!item.isAvailable"></div>
+          {{item.brand}} {{item.model}}
+        </h4>
+        <div class="d-flex justify-content-center mb-4 me-2">
+            <div class="px-2">
+                <i class="fa fa-car  mr-1 me-2"></i>
+                <span>{{item.year}}</span>
+            </div>
+            <div class="px-2 border-left border-right">
+                <i class="fa fa-cogs  me-2"></i>
+                <span *ngIf="item.trans_Type==0">Manual</span>
+                <span *ngIf="item.trans_Type==1">Automatic</span>
+            </div>
+            <div class="px-2">
+              <i class="fa fa-solid fa-chair me-2"></i>
+                <span>{{item.seats}}</span>
+            </div>
+        </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="hstack justify-content-evenly mt-3">
+          <button class="btn" (click)="updateAvailability(item.id)">
+            availability
+          </button>
+          <button class="btn" (click)="DeleteCar(item.id)">
+            Delete
+          </button>
+        </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,58 @@
+
+<div class="container">
+  <h1 class=" h1styl display-4 color-sec my-3 text-uppercase text-center mb-5">Find Your Car</h1>
+  <div>
+    <input [(ngModel)]="search" type="text" placeholder="choose your location..." class="form-control w-75 mx-auto my-4" style="color: #b81a49 !important; border:#35296d 2px solid;" >
+  </div>
+  <div class="row my-4">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-4" [routerLink]="['/cardetails',item.id]" *ngFor="let item of cars|search:search ; let i = index" >
+      <div class="rent-item mb-4" >
+        <figure style="height: 150px;">
+          <img class="img-fluid mb-4 h-100" *ngIf="i==0" src="/src/assets/car-images/car1.jpg"  alt="">
+          <img class="img-fluid mb-4 h-100" *ngIf="i==1" src="/src/assets/car-images/car2.jpg"  alt="">
+          <img class="img-fluid mb-4 h-100" *ngIf="i==2" src="/src/assets/car-images/car3.jpg"  alt="">
+          <img class="img-fluid mb-4 h-100" *ngIf="i==3"src="/src/assets/car-images/car4.jpg"  alt="">
+          <img class="img-fluid mb-4 h-100" *ngIf="i==4" src="/src/assets/car-images/car5.jpg"  alt="">
+        </figure>
+
+        <h4 class="text-uppercase mb-4">{{item.brand}} {{item.model}}</h4>
+        <div class="d-flex justify-content-center mb-4 me-2">
+            <div class="px-2">
+                <i class="fa fa-car  mr-1 me-2"></i>
+                <span>{{item.year}}</span>
+            </div>
+            <div class="px-2 border-left border-right">
+                <i class="fa fa-cogs  me-2"></i>
+                <span *ngIf="item.trans_Type==0">Manual</span>
+                <span *ngIf="item.trans_Type==1">Automatic</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-4 me-2">
+            <div class="px-2">
+              <i class="fa fa-solid fa-chair me-2"></i>
+                <span>{{item.seats}}</span>
+            </div>
+            <div class="px-2">
+              <i class="fa fa-solid fa-location-dot me-2"></i>
+                <span>{{item.carLocation}}</span>
+            </div>
+          </div>
+
+
+        <a class="btn  px-3" >Rs.{{item.cost_Per_Day}}/Day</a>
+    </div>
+
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+

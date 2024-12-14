@@ -1,0 +1,114 @@
+<div class="hstack justify-content-center vh-100" >
+<p class="alert alert-danger"> There Is No Any Rentals</p>
+</div>
+<section class="container my-3" >
+  <h1 class=" h1styl display-4 color-sec my-2 text-uppercase text-center mb-5">Find Our Pending Rentals</h1>
+  <table class="table table-hover mx-auto   my-2 rounded-4 overflow-hidden fw-bolder">
+    <thead class="table-custom">
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Pickup location</th>
+        <th>return Location</th>
+        <th>total Cost</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody class="fw-bolder">
+      <tr *ngFor="let item of pendingRentals" class="color-secc">
+        <td>{{item.start_Date.split("T")[0]}}</td>
+        <td>{{item.end_Date.split("T")[0]}}</td>
+        <td>{{item.pick_Location}}</td>
+        <td>{{item.ret_Location}}</td>
+        <td>{{item.total_Cost}}</td>
+        <td><button  title="button" type="button" class="btn btn-primary" (click)="updateStatus(item.id, item.total_Cost)">Rent</button></td>
+        <!-- <td>{{item.fullNameCarOwner}}</td>
+        <td>{{item.fullNameClient}}</td> -->
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="container my-3">
+  <h1 class=" h1styl display-4 color-sec my-2 text-uppercase text-center mb-5">Find Our Waiting Rentals</h1>
+  <table class="table table-hover mx-auto   my-2 rounded-4 overflow-hidden fw-bolder">
+    <thead class="table-custom">
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Pickup location</th>
+        <th>return Location</th>
+        <th>total Cost</th>
+        <th>Car Owner`s Name</th>
+        <th>Client`s Name</th>
+      </tr>
+    </thead>
+    <tbody class="fw-bolder">
+      <tr *ngFor="let item of waitingRentals" class="color-secc">
+        <td>{{item.start_Date.split("T")[0]}}</td>
+        <td>{{item.end_Date.split("T")[0]}}</td>
+        <td>{{item.pick_Location}}</td>
+        <td>{{item.ret_Location}}</td>
+        <td>{{item.total_Cost}}</td>
+        <td>{{item.fullNameCarOwner}}</td>
+        <td>{{item.fullNameClient}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="container my-3">
+  <h1 class=" h1styl display-4 color-sec my-2 text-uppercase text-center mb-5">Find Our Confirmed Rentals</h1>
+  <table class="table table-hover mx-auto   my-2 rounded-4 overflow-hidden fw-bolder">
+    <thead class="table-custom">
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Pickup location</th>
+        <th>return Location</th>
+        <th>total Cost</th>
+        <th>Car Owner`s Name</th>
+        <th>Client`s Name</th>
+      </tr>
+    </thead>
+    <tbody class="fw-bolder">
+      <tr *ngFor="let item of confirmedRentals" class="color-secc">
+        <td>{{item.start_Date.split("T")[0]}}</td>
+        <td>{{item.end_Date.split("T")[0]}}</td>
+        <td>{{item.pick_Location}}</td>
+        <td>{{item.ret_Location}}</td>
+        <td>{{item.total_Cost}}</td>
+        <td>{{item.fullNameCarOwner}}</td>
+        <td>{{item.fullNameClient}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section class="container my-3" >
+  <h1 class=" h1styl display-4 color-sec my-2 text-uppercase text-center mb-5">Find Our Rejected Rentals</h1>
+  <table class="table table-hover mx-auto   my-2 rounded-4 overflow-hidden fw-bolder">
+    <thead class="table-custom">
+      <tr>
+        <th>Start Date</th>
+        <th>End Date</th>
+        <th>Pickup location</th>
+        <th>return Location</th>
+        <th>total Cost</th>
+        <th>Car Owner`s Name</th>
+        <th>Client`s Name</th>
+      </tr>
+    </thead>
+    <tbody class="fw-bolder">
+      <tr *ngFor="let item of rejectedRentals" class="color-secc">
+        <td>{{item.start_Date.split("T")[0]}}</td>
+        <td>{{item.end_Date.split("T")[0]}}</td>
+        <td>{{item.pick_Location}}</td>
+        <td>{{item.ret_Location}}</td>
+        <td>{{item.total_Cost}}</td>
+        <td>{{item.fullNameCarOwner}}</td>
+        <td>{{item.fullNameClient}}</td>
+      </tr>
+    </tbody>
+  </table>
+</section>

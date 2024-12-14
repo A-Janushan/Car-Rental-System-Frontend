@@ -1,0 +1,54 @@
+<section class="container my-3">
+  <h1 class=" h1styl display-4 color-sec my-2 text-uppercase text-center mb-5">Find Our total Cars</h1>
+  <table class="table table-hover w-75 mx-auto   my-2 rounded-4 overflow-hidden fw-bolder">
+    <thead class="table-custom">
+      <tr>
+        <th>Total Cars</th>
+        <th>Available Cars</th>
+        <th>Unavailable Cars</th>
+
+      </tr>
+    </thead>
+    <tbody class="fw-bolder">
+      <tr class="color-secc">
+        <td>{{carsCount.totalCars}}</td>
+        <td>{{carsCount.availableCars}}</td>
+        <td>{{carsCount.unavailableCars}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>
+
+
+<div class="container my-3">
+  <h1 class=" h1styl display-4 color-sec my-3 text-uppercase text-center mb-5">Find Our Cars</h1>
+  <div class="row my-4">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 mt-4" *ngFor="let item of cars" >
+      <div class="rent-item mb-4" >
+        <figure style="height: 150px;">
+          <img class="img-fluid mb-4 h-100" [src]="item.carImageURL"  alt="">
+        </figure>
+
+        <h4 class="text-uppercase mb-4">{{item.brand}} {{item.model}}</h4>
+        <div class="d-flex justify-content-center mb-4 me-2">
+            <div class="px-2">
+                <i class="fa fa-car  mr-1 me-2"></i>
+                <span>{{item.year}}</span>
+            </div>
+            <div class="px-2 border-left border-right">
+                <i class="fa fa-cogs  me-2"></i>
+                <span *ngIf="item.trans_Type==0">Manual</span>
+                <span *ngIf="item.trans_Type==1">Auto</span>
+            </div>
+            <div class="px-2">
+              <i class="fa fa-solid fa-chair me-2"></i>
+                <span>{{item.seats}}</span>
+            </div>
+        </div>
+        <a class="btn  px-3 mx-3" >${{item.cost_Per_Day}}/Day</a>
+        <a class="btn  px-3" (click)="deleteCar(item.id)">Delete</a>
+    </div>
+    </div>
+  </div>
+</div>

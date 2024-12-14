@@ -1,0 +1,61 @@
+/* You can add global styles to this file, and also import other style files */
+/* font-family: Roboto, "Helvetica Neue", sans-serif;  */
+@import url('https://fonts.googleapis.com/css2?family=El+Messiri&display=swap');
+html, body { height: 100%; }
+body { margin: 0; background-color: #f0f0f0; overflow-x: hidden !important;
+  font-family: "El Messiri", sans-serif; }
+.h1styl {
+    font-weight: 500 !important;
+}
+.btn-color{
+  background-color: #c71549;
+  padding:10px;
+  color: white;
+  border: 0px;
+  border-radius: 15px;
+  transition:all 0.3s ;
+  cursor: pointer;
+}
+.bg-nav{
+  background-color: #35296d !important;
+  color:#b81a49;
+}
+.color-navItem{
+  color:white !important;
+}
+.btn-color:hover{
+  background-color: #b81a49;
+  color:#35296d ;
+  border:inset 1px solid #35296d;
+}
+.color-main{
+  color:#35296d  !important;
+}
+.color-sec{
+  color:#35296d !important;
+}
+.bg-main{
+  background-color: #35296d !important;
+}
+.green-circle{
+  width: 20px;
+  height: 20px;
+  background-color: green;
+  border-radius: 50%;
+}
+.red-circle{
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  border-radius: 50%;
+}
+.color-secc{
+  color: #b81a49 !important;
+}
+[disabled] {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+
+

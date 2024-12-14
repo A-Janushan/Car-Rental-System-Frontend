@@ -1,0 +1,42 @@
+<section>
+  <h1 class=" h1styl display-4 color-sec my-4 text-uppercase text-center mb-5">Find Our Users</h1>
+  <table class="table table-hover   my-5 rounded-4 overflow-hidden fw-bolder">
+    <thead class="table-custom">
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone Number</th>
+        <th>Address</th>
+        <th>Date Of Birth</th>
+        <th>Profile Image</th>
+        <th>National Id</th>
+        <th>Driving License</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" class="color-secc">
+        <td>{{user.fName}} {{user.lName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.phoneNumber}}</td>
+        <td>{{user.address}}</td>
+        <td>{{user.dob.split("T")[0]}}</td>
+        <td style="height: 100px;" (click)="openDialog(user.profileURl)">
+          <img [src]="user.profileURl" class="w-100 h-100" alt="">
+        </td>
+        <td style="height: 100px;" (click)="openDialog(user.nationalIdURl)">
+          <img [src]="user.nationalIdURl" class="w-100 h-100" alt="">
+        </td>
+        <td style="height: 100px;" (click)="openDialog(user.drivingLicURl)">
+          <img [src]="user.drivingLicURl" class="w-100 h-100" alt="">
+        </td>
+        <td (click)="deleteUser(user.id)">
+          <button class="btn btn-danger">Delete</button>
+        </td>
+
+
+      </tr>
+    </tbody>
+  </table>
+
+</section>

@@ -1,0 +1,41 @@
+.rent-item {
+  padding: 30px;
+  text-align: center;
+  background: #F4F5F8;
+  transition:transform 0.5s;
+}
+
+.rent-item:hover {
+  background: #35296d;
+  color: #F4F5F8;
+  transform: scale(1.05,1.05);
+}
+
+
+.rent-item:hover h4 {
+  color: #F4F5F8;
+}
+
+.fa  {
+  color: #b81a49;
+}
+
+.btn {
+  color: #F4F5F8;
+  background-color:#b81a49 ;
+}
+
+thead th {
+  /* background-color: #f0f0f0; Change this to your desired background color */
+  color: #35296d; /* Change this to your desired text color */
+}
+tbody td{
+  color:#b81a49;
+}
+td{
+  overflow: hidden;
+}
+tbody td img{
+  border: 1px solid #b81a49;
+  border-radius: 20px;
+}

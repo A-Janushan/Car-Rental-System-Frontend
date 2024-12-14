@@ -1,0 +1,29 @@
+.rent-item {
+  padding: 30px;
+  text-align: center;
+  background: #F4F5F8;
+  transition:transform 0.5s;
+}
+
+.rent-item:hover {
+  background: #35296d;
+  color: #F4F5F8;
+  transform: scale(1.05,1.05);
+}
+
+
+.rent-item:hover h4 {
+  color: #F4F5F8;
+}
+
+.fa  {
+  color: #b81a49;
+}
+
+.btn {
+  color: #F4F5F8;
+  background-color:#b81a49 ;
+}
+.h1styl {
+  font-weight: 500 !important;
+}

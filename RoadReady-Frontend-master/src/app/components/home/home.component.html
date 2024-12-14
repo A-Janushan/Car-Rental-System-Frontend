@@ -1,0 +1,237 @@
+<div class="container-fluid py-5">
+  <div class="container pt-5 pb-3">
+      <h1 class="h1styl display-4 text-uppercase text-center mb-5">Welcome To <span class="textclr">KJ rides</span></h1>
+      <div class="row justify-content-center">
+          <div class="col-lg-10 text-center">
+              <img class="w-75 mb-4" src="./assets/about.png" alt="">
+              <p class="text-secondary">At KJ rides Car Rentals, we're passionate about providing top-notch car
+                  rental solutions tailored to our customers' needs. With years of industry experience, we pride
+                  ourselves on offering a diverse fleet of well-maintained vehicles, from compact cars for city
+                  explorations to spacious SUVs for family adventures.
+
+                  Our commitment goes beyond just renting cars; we aim to create memorable experiences for our
+                  customers by delivering exceptional service and flexibility. Whether you're planning a weekend
+                  getaway, a business trip, or need a replacement vehicle, we've got you covered with affordable rates
+                  and hassle-free booking.</p>
+              <p class="text-secondary fw-bold">Choose Road Ready for your next journey and discover the difference of
+                  renting with a company that puts you first.</p>
+          </div>
+      </div>
+      <div class="row mt-3">
+          <div class="col-lg-4 mb-2">
+              <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                  <div class="d-flex align-items-center justify-content-center flex-shrink-0 sybg ml-n4 mr-4"
+                      style="width: 100px; height: 100px;">
+                      <img src="./assets/headset.ico" alt="headset" style="width: 50px; height: 50px ;">
+                  </div>
+                  <h4 class="h4styl text-uppercase ms-3">24/7 Car Rental Support</h4>
+              </div>
+          </div>
+          <div class="col-lg-4 mb-2">
+              <div class="d-flex align-items-center midbg p-4 mb-4" style="height: 150px;">
+                  <div class="d-flex align-items-center justify-content-center flex-shrink-0 sybg ml-n4 mr-4"
+                      style="width: 100px; height: 100px;">
+                      <img src="./assets/car.ico" alt="car" style="width: 50px; height: 50px ;">
+                  </div>
+                  <h4 class="h4styl text-light text-uppercase ms-3">Car Reservation Anytime</h4>
+              </div>
+          </div>
+          <div class="col-lg-4 mb-2 ">
+              <div class="d-flex align-items-center bg-light p-4 mb-4" style="height: 150px;">
+                  <div class="d-flex align-items-center justify-content-center flex-shrink-0 sybg ml-n4 mr-4"
+                      style="width: 100px; height: 100px;">
+                      <img src="./assets/location.ico" alt="location" style="width: 50px; height: 50px ;">
+                  </div>
+                  <h4 class="h4styl text-uppercase ms-3">Lots Of Pickup Locations</h4>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="row gx-0 py-5 rounded-3" style="height: 600px;">
+  <div class="col-md-12 mx-auto rounded-3" >
+    <owl-carousel-o  [options]="customOptions" class="rounded-3">
+      <ng-template carouselSlide *ngFor="let item of cars" >
+        <div class="rent-item mb-4"style="height: 500px;"[routerLink]="['/cardetails',item.id]" >
+          <img class="img-fluid mb-4" [src]="item.carImageURL" alt="">
+          <h4 class="text-uppercase mb-4">{{item.brand}} {{item.model}}</h4>
+          <div class="d-flex justify-content-center mb-4 me-2">
+              <div class="px-2">
+                  <i class="fa fa-car  mr-1 me-2"></i>
+                  <span>{{item.year}}</span>
+              </div>
+              <div class="px-2 border-left border-right">
+                  <i class="fa fa-cogs  me-2"></i>
+                  <span *ngIf="item.trans_Type==0">Manual</span>
+                  <span *ngIf="item.trans_Type==1">Automatic</span>
+              </div>
+              <div class="px-2">
+                <i class="fa fa-solid fa-chair me-2"></i>
+                  <span>{{item.seats}}</span>
+              </div>
+          </div>
+          <!-- <div class="d-flex justify-content-center mb-4 me-2">
+            <div class="px-2">
+                <i class="fa fa-car  mr-1 me-2"></i>
+                <span>{{item.year}}</span>
+            </div>
+            <div class="px-2 border-left border-right">
+                <i class="fa fa-cogs  me-2"></i>
+                <span *ngIf="item.trans_Type==0">Manual</span>
+                <span *ngIf="item.trans_Type==1">Auto</span>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center mb-4 me-2">
+            <div class="px-2">
+              <i class="fa fa-solid fa-chair me-2"></i>
+                <span>{{item.seats}}</span>
+            </div>
+            <div class="px-2">
+              <i class="fa fa-solid fa-location-dot me-2"></i>
+                <span>{{item.carLocation}}</span>
+            </div>
+          </div> -->
+          <a class="btn  px-3" >${{item.cost_Per_Day}}/Day</a>
+      </div>
+
+      </ng-template>
+
+    </owl-carousel-o>
+  </div>
+
+</div>
+
+
+<div class="choose ">
+  <div class="container">
+     <div class="row">
+        <div class="col-md-12">
+           <div class="titlepage mb-5" style="text-align: center;">
+              <h2 class="choshd">Why Choose Us</h2>
+              <span>Finding the right car rental company can be overwhelming with so many options available.<br> Here's why choosing our services stands out </span>
+           </div>
+        </div>
+     </div>
+     <div class="row">
+        <div class="col-md-12">
+           <div class="choose_box">
+              <span>01</span>
+              <p>We have the expertise to provide you with the best rental experience tailored to your needs. Our team is dedicated to ensuring your journey is smooth and enjoyable. </p>
+           </div>
+        </div>
+        <div class="col-md-12">
+           <div class="choose_box">
+              <span>02</span>
+              <p>We offer a diverse range of well-maintained vehicles to suit every preference and budget. Whether you need a compact car for city driving or a spacious SUV for a family road trip, we've got you covered. </p>
+           </div>
+        </div>
+        <div class="col-md-12">
+           <div class="choose_box">
+              <span>03</span>
+              <p>
+                  We provide versatile rental solutions to suit your needs, offering both short-term and long-term rental options. Plus, we offer convenient delivery and pick-up services to ensure a hassle-free experience for you.</p>
+           </div>
+        </div>
+     </div>
+  </div>
+</div>
+
+<!--
+    ///////////////
+ -->
+
+<!-- About -->
+<div class="row mt-5" id="parent">
+    <div class="col-lg-6 col-md-12 px-0" id="chi1">
+        <div id="text-content" class="d-flex flex-column justify-content-center align-items-center">
+            <h1>COMPANY CAR RENTAL</h1>
+            <h1>BUSINESS SOLUTIONS</h1>
+            <p>Sign up as a business customer to tailor the package that meets your needs the best</p>
+        </div>
+
+        <div class="d-flex justify-content-center" id="circle-container">
+            <div class="row">
+                <div class="col-sm-12 col-md-4">
+                    <div class="d-flex flex-column align-items-center">
+                        <div id="cir1">
+                            <img src="./assets/replacement.png" class="img-fluid" alt="Replacement Car">
+                        </div>
+                        <p class="small-text">Replacement car in case of accident Convenience all the way, on the spot
+                            car replacement</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="d-flex flex-column align-items-center">
+                        <div id="cir2">
+                            <img src="./assets/car.png" class="img-fluid" alt="Car Prices">
+                        </div>
+                        <p class="small-text">All - In prices What you see is really what you pay. No hidden charges
+                            (Vehicle maintenance cost included)</p>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="d-flex flex-column align-items-center">
+                        <div id="cir3">
+                            <img src="./assets/flexibility.png" class="img-fluid" alt="Flexible Terms">
+                        </div>
+                        <p class="small-text">Flexible business terms Place, amend and cancel bookings free of charge
+                            24/7, 365 days a year online or through our customer care team.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-row justify-content-center align-items-center flex-wrap">
+            <button id="btn1" class="btn btn-primary">Request A Question</button>
+            <button id="btn2" class="btn btn-primary">Contact Us</button>
+        </div>
+    </div>
+
+    <div class="col-lg-6 col-md-12 px-0" id="chi2">
+        <img src="./assets/carman.jpg"
+            class="img-fluid" alt="Responsive Image">
+    </div>
+</div>
+<!-- End About -->
+
+
+<!-- How it works -->
+
+<div id="title" class="my-3">
+  <h3> HOW IT WORKS</h3>
+</div>
+<div class="row" id="myDiv">
+
+
+
+    <div class="col-lg-6 col-md-12" id="div1">
+
+        <div id="bullhorn">
+            <img alt="car1" src="./assets/8308414.png">
+        </div>
+
+        <div id="myText1">
+            <h3> OWNER </h3>
+            <P>list your car now and start and start gaining money </P>
+        </div>
+
+    </div>
+
+    <div class="col-lg-6 col-md-12" id="div2">
+
+        <div id="comments">
+            <img alt="car2" src="./assets/car-key.png" class="img-fluid">
+        </div>
+
+        <div id="myText2">
+            <h3> RENTAL </h3>
+            <P> Drive the car your dream with affordable price </P>
+        </div>
+    </div>
+</div>
+<!-- End How it works -->
+<!-- ////////////////////////// -->
+

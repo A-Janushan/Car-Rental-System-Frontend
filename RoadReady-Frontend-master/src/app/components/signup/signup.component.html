@@ -1,0 +1,174 @@
+<section>
+
+  <div class="text-center my-3 ">
+    <img
+      src="https://readme-typing-svg.demolab.com?font=Orbitron&weight=600&size=24&pause=1000&color=c71549&center=true&vCenter=true&width=435&lines=Welcome+to+KJ+Rides;Your+best+Place+to+rent+a+car"
+      alt="Typing SVG" />
+  </div>
+
+  <div class="row justify-content-center align-items-center">
+    <div class="col-md-10 mb-5">
+      <div class="card">
+
+        <form class="col-10  mx-auto my-3" [formGroup]="registerForm" (ngSubmit)="register()">
+
+          <p class="activeL color-main mb-3 d-flex justify-content-center fs-4 fw-bold">SIGN UP</p>
+
+          <div class="d-flex justify-content-between">
+            <div class="fninp form-floating my-3">
+              <input type="text" placeholder="Enter your first Name" class="form-control" formControlName="fName" name="fName"  [ngClass]="{
+              'is-valid': !registerForm.get('fName')?.errors && registerForm.get('fName')?.dirty,
+              'is-invalid': registerForm.get('fName')?.errors && registerForm.get('fName')?.dirty
+            }">
+              <label class="activeL color-main">First Name </label>
+              <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+                <li *ngIf="registerForm.get('fName')?.getError('required')">First Name is required</li>
+              </ul>
+            </div>
+
+            <div class="lninp form-floating my-3">
+              <input type="text" placeholder="Enter your Last Name" class="form-control" formControlName="lName" [ngClass]="{
+              'is-valid': !registerForm.get('lName')?.errors && registerForm.get('lName')?.dirty,
+              'is-invalid': registerForm.get('lName')?.errors && registerForm.get('lName')?.dirty
+            }">
+              <label class="activeL color-main">Last Name </label>
+              <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+                <li *ngIf="registerForm.get('lName')?.getError('required')">Last Name is required</li>
+              </ul>
+            </div>
+          </div>
+
+
+          <div class="form-floating mb-3">
+            <input type="text" placeholder="ex@ex.com" class="form-control" formControlName="email" [ngClass]="{
+            'is-valid': !registerForm.get('email')?.errors && registerForm.get('email')?.dirty,
+            'is-invalid': registerForm.get('email')?.errors && registerForm.get('email')?.dirty
+          }">
+            <label class="activeL color-main">Email</label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('email')?.getError('required')">Email is required</li>
+              <li *ngIf="registerForm.get('email')?.getError('email')">Please enter a valid email</li>
+            </ul>
+          </div>
+
+          <div class="form-floating mb-3">
+            <select name="role" title="role" formControlName="role">
+              <option value="0">Admin</option>
+              <option value="1">User</option>
+            </select>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="file" (change)="onProfileImageSelected($event)" placeholder="Enter your image"
+              class="form-control" formControlName="imageProfile" [ngClass]="{
+            'is-valid': !registerForm.get('imageProfile')?.errors && registerForm.get('imageProfile')?.dirty,
+            'is-invalid': registerForm.get('imageProfile')?.errors && registerForm.get('imageProfile')?.dirty
+          }">
+            <label class="activeL color-main">personal Image </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('imageProfile')?.getError('required')">personal Image is required</li>
+            </ul>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="text" placeholder="Enter a City" class="form-control" formControlName="address" [ngClass]="{
+            'is-valid': !registerForm.get('address')?.errors && registerForm.get('address')?.dirty,
+            'is-invalid': registerForm.get('address')?.errors && registerForm.get('address')?.dirty
+          }">
+            <label class="activeL color-main">City </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('address')?.getError('required')">address is required</li>
+            </ul>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="tel" placeholder="Enter a phone number" class="form-control" formControlName="phoneNumber"
+              [ngClass]="{
+            'is-valid': !registerForm.get('phoneNumber')?.errors && registerForm.get('phoneNumber')?.dirty,
+            'is-invalid': registerForm.get('phoneNumber')?.errors && registerForm.get('phoneNumber')?.dirty
+          }">
+            <label class="activeL color-main">Phone Number </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('phoneNumber')?.getError('required')">Phone Number is required</li>
+              <li *ngIf="registerForm.get('phoneNumber')?.getError('pattern')">Phone Number must be Srilankan number</li>
+            </ul>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="date" placeholder="Enter a date of birth" class="form-control" formControlName="dob" [ngClass]="{
+            'is-valid': !registerForm.get('dob')?.errors && registerForm.get('dob')?.dirty,
+            'is-invalid': registerForm.get('dob')?.errors && registerForm.get('dob')?.dirty
+          }">
+            <label class="activeL color-main">Date of Birth </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('dob')?.getError('required')">Date is required</li>
+            </ul>
+          </div>
+          <div class="form-floating mb-3">
+            <input type="file" (change)="onNationalIDSelected($event)" placeholder="Enter your NationalId"
+              class="form-control" formControlName="nationalIdImage" [ngClass]="{
+            'is-valid': !registerForm.get('nationalIdImage')?.errors && registerForm.get('nationalIdImage')?.dirty,
+            'is-invalid': registerForm.get('nationalIdImage')?.errors && registerForm.get('nationalIdImage')?.dirty
+          }">
+            <label class="activeL color-main">National Id </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('nationalIdImage')?.getError('required')">National Id is required</li>
+            </ul>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="file" (change)="onDrivingLicenseSelected($event)" placeholder="Enter a driving license"
+              class="form-control" formControlName="drivingLic" [ngClass]="{
+            'is-valid': !registerForm.get('drivingLic')?.errors && registerForm.get('drivingLic')?.dirty,
+            'is-invalid': registerForm.get('drivingLic')?.errors && registerForm.get('drivingLic')?.dirty
+          }">
+            <label class="activeL color-main">Driving License </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('drivingLic')?.getError('required')">Driving License is required</li>
+            </ul>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" placeholder="Password" class="form-control" formControlName="password" [ngClass]="{
+            'is-valid': !registerForm.get('password')?.errors && registerForm.get('password')?.dirty,
+            'is-invalid': registerForm.get('password')?.errors && registerForm.get('password')?.dirty
+          }">
+            <label class="activeL color-main">Password </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('password')?.getError('required')">Password is required</li>
+              <li *ngIf="registerForm.get('password')?.getError('pattern')">Password must start with upperCase and many
+                numbers</li>
+            </ul>
+          </div>
+
+          <div class="form-floating mb-3">
+            <input type="password" placeholder="Enter a driving license" class="form-control"
+              formControlName="confirmPassword" [ngClass]="{
+            'is-valid': !registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.dirty,
+            'is-invalid': registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.dirty
+          }">
+            <label class="activeL color-main">Confirm Password </label>
+            <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+              <li *ngIf="registerForm.get('confirmPassword')?.getError('required')">Confirm password is required</li>
+              <li *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">Password must start with upperCase and
+                many numbers</li>
+              <li *ngIf="registerForm.get('confirmPassword')?.getError('PasswordMatched')">Repassword does not match
+                password</li>
+            </ul>
+          </div>
+
+          <div class=" d-flex justify-content-center ">
+            <button class=" btn-color mb-3  w-50 " [disabled]="registerForm.invalid">Continue</button>
+          </div>
+
+          <div class=" d-flex justify-content-center">
+            <p class="me-1">Already have account?</p>
+            <a (click)="alreadyReg()" class="color-main" style="cursor: pointer;">Sign in</a>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+</section>

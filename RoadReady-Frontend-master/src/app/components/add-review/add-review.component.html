@@ -1,0 +1,31 @@
+<section class="p-4 bg-white  rounded ">
+  <form [formGroup]="reviewForm" (ngSubmit)="addReview(reviewForm)">
+
+    <div class="form-floating my-3">
+      <p-rating formControlName="rating"[ngClass]="{
+        'is-valid': !reviewForm.get('rating')?.errors && reviewForm.get('rating')?.dirty,
+        'is-invalid': reviewForm.get('rating')?.errors && reviewForm.get('rating')?.dirty
+      }"></p-rating>
+      <!-- <label  class="activeL color-main">Rating </label> -->
+      <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+        <li *ngIf="reviewForm.get('rating')?.getError('required')">Rating is required</li>
+      </ul>
+    </div>
+    <div class="form-floating my-3">
+      <textarea formControlName="comment" rows="4" cols="50" class="form-control"[ngClass]="{
+        'is-valid': !reviewForm.get('comment')?.errors && reviewForm.get('comment')?.dirty,
+        'is-invalid': reviewForm.get('comment')?.errors && reviewForm.get('comment')?.dirty
+      }"></textarea>
+      <label  class="activeL color-main">Give us a feedback </label>
+      <ul class="list-unstyled alert alert-danger p-2 invalid-feedback">
+        <li *ngIf="reviewForm.get('comment')?.getError('required')">Comment is required</li>
+      </ul>
+    </div>
+
+    <input type="hidden" formControlName="rentalId">
+    
+    <div class="hstack justify-content-center ">
+      <button type="submit" class="btn-color w-50 text-center " [disabled]="reviewForm.invalid">Submit Review</button>
+    </div>
+  </form>
+</section>
